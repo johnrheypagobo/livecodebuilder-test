@@ -1,0 +1,19 @@
+library test_new_lcb
+
+use com.livecode.engine
+use com.livecode.foreign
+
+foreign handler Multiply_numbers(in pNum1 as Integer, in pNum2 as Integer) returns Integer binds to "new_dll>multiply_numbers"
+
+
+public handler testing_num(in p1 as Integer,in p2 as Integer) returns Integer
+  
+  unsafe
+  
+      return Multiply_numbers(p1,p2)
+      
+  end unsafe
+  
+end handler
+
+end library
